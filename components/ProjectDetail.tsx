@@ -6,6 +6,7 @@ import { Project } from '@/data/projects';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import Footer from './Footer';
 
 interface ProjectDetailProps {
   project: Project;
@@ -55,7 +56,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
   return (
     <div className="min-h-screen bg-black">
       {/* Back Button */}
-      <div className="sticky top-0 z-40 glass-effect border-b border-white/10 backdrop-blur-xl">
+      <div className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <Link
             href="/#projects"
@@ -66,6 +67,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </Link>
         </div>
       </div>
+      
+      {/* Spacer to account for fixed header */}
+      <div className="h-16"></div>
 
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Header Section */}
@@ -369,6 +373,9 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }
